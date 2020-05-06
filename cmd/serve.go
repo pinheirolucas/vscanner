@@ -59,15 +59,8 @@ func init() {
 
 func scan(c *gin.Context) {
 	startDelayStr := c.DefaultPostForm("startDelay", "5")
-	typingDelayStr := c.DefaultPostForm("typingDelay", "0")
 
 	startDelay, err := strconv.Atoi(startDelayStr)
-	if err != nil {
-		c.AbortWithError(http.StatusBadRequest, err)
-		return
-	}
-
-	typingDelay, err := strconv.Atoi(typingDelayStr)
 	if err != nil {
 		c.AbortWithError(http.StatusBadRequest, err)
 		return
@@ -102,6 +95,6 @@ func scan(c *gin.Context) {
 
 	time.Sleep(time.Duration(startDelay) * time.Second)
 	for _, symbol := range symbols {
-		robotgo.TypeStrDelay(symbol.Data, typingDelay)
+		robotgo.TypeStr(symbol.Data)
 	}
 }
