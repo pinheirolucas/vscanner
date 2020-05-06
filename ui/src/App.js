@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { makeStyles } from "@material-ui/core/styles";
 
-import ScannerForm from "./ScannerForm";
+import BarcodeList from "./BarcodeList";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,8 +35,8 @@ function App() {
             </Typography>
           </Toolbar>
         </AppBar>
+        <BarcodeList />
       </div>
-      <ScannerForm />
     </React.Fragment>
   );
 }
